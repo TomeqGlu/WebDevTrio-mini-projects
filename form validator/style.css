@@ -79,6 +79,10 @@ body {
   visibility: hidden;
 }
 
+.error-message::first-letter {
+  text-transform: uppercase;
+}
+
 .form-control.error .error-message{
   visibility: visible;
 }
