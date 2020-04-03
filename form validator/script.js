@@ -6,34 +6,25 @@ const password2 = document.getElementById('password2');
 
 //Show input error message
 function showError(input, message) {
-  const wrapper = input.parentNode;
-  const errorNode = wrapper.querySelector('.error-message');
-  input.classList.add('error');
-  input.classList.remove('success');
-  errorNode.innerHTML = message;
-  console.log(message);
+  const formControl = input.parentElement;
+  formControl.className = 'form-control error';
+  const small = formControl.querySelector('small');
+  small.innerText = message;
 }
 
 // Show succes outline
 function showSuccess(input) {
-  const wrapper = input.parentNode;
-  const errorNode = wrapper.querySelector('.error-message');
-
-  input.classList.remove('error');
-  input.classList.add('success');
-  errorNode.innerText = '';
+  const formControl = input.parentElement;
+  formControl.className = 'form-control success'
 }
 
 //Check email is valid
 function checkEmail(input) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  console.log(re.test('adfaf@svsv.pl'));
   if(re.test(input.value.trim())) {
     showSuccess(input);
-    
   } else {
     showError(input, 'Email is not valid');
-    console.log(re.test('adfaf@svsv.pl'));
   }
 }
 
@@ -75,5 +66,4 @@ form.addEventListener('submit', function(e) {
   checkLength(password, 6, 25);
   checkEmail(email);
   chcekPasswordMatch(password, password2);
-  
 });
