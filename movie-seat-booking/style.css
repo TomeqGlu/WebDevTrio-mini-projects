@@ -90,9 +90,13 @@ body {
 .cinema__seat:nth-last-of-type(2) {
   margin-left: 18px;
 }
-.cinema__seat:not(.cinema__seat--occupied):hover {
+.cinema__seat:not(.cinema__seat--occupied):hover,
+.cinema__seat:not(.cinema__seat--occupied):focus {
   cursor: pointer;
   transform: scale(1.2);
+}
+.cinema__seat:not(.cinema__seat--occupied):focus {
+  outline: none;
 }
 .cinema__seat--selected {
   background-color: green;
