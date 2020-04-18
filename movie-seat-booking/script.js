@@ -3,9 +3,18 @@ const seats = document.querySelectorAll('.cinema__seat');
 const count = document.getElementById('count');
 const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie');
-let ticketPrice = +movieSelect.value;
+const screen = document.querySelector('.cinema__pic');
+
+const movieScreens = [
+  'img/frozen2.png',
+  'img/joker.png',
+  'img/mortalengines.png',
+  'img/topgun.png'
+];
 
 populateUI();
+
+let ticketPrice = +movieSelect.value;
 
 // Save selected movie index & price
 function setMovieData(movieIndex, moviePrice) {
@@ -17,7 +26,6 @@ function updateSelectedCount() {
   const selectedSeats = document.querySelectorAll('.cinema__seat--selected');
   
   const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat)); //map works like forEach but return array
-  console.log(seatsIndex);
   localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
 
   const selectedSeatsCount = selectedSeats.length;
@@ -42,13 +50,14 @@ function populateUI() {
   if(selectedMovieIndex !== null) {
     movieSelect.selectedIndex = selectedMovieIndex;
   }
-  console.log(selectedSeats);
 }
 
 // Movie select event
-movieSelect.addEventListener('change', (e) => {
-  ticketPrice = +e.target.value;
-  setMovieData(e.target.selectedIndex, e.target.value);
+movieSelect.addEventListener('change', ({target}) => {
+  const selectedOption = target.selectedOptions[0];
+  ticketPrice = +target.value;
+  setMovieData(target.selectedIndex, target.value);
+  screen.setAttribute('src', movieScreens[selectedOption.id - 1]);
   updateSelectedCount();
 })
 
@@ -65,5 +74,4 @@ cinema.addEventListener('click', (e) => {
 });
 
 //Initial cound and total set
-updateSelectedCount(); //There is error with price, after reload in browser always set price to 10$ (first item)
-
+updateSelectedCount(); 

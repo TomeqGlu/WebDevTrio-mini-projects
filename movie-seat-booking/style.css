@@ -65,14 +65,21 @@ body {
 .cinema {
   perspective:  1000px;
   margin-bottom: 30px;
+  width: 230px;
 }
 .cinema__screen {
   background-color: #fff;
+  overflow: hidden;
   height: 70px;
   width: 100%;
   margin: 10px 0;
   transform: rotateX(-45deg);
   box-shadow: 0 3px 10px rgba(255, 255, 2555, 0.7);
+}
+.cinema__pic {
+  max-width: 100%;
+  height: auto;
+  
 }
 .cinema__seat {
   background-color: #444451;

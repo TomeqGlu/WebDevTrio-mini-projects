@@ -11,10 +11,10 @@
     <div class="check-movie">
       <label class="check-movie__label" for="movie">Pick a movie:</label>
       <select class="check-movie__select"id="movie">
-        <option value="10">Frozen 2 ($10)</option>
-        <option value="12">Joker ($12)</option>
-        <option value="8">Mortal Engines ($8)</option>
-        <option value="9">Top Gun Maverick ($9)</option>
+        <option id="1" value="10">Frozen 2 ($10)</option>
+        <option id="2" value="12">Joker ($12)</option>
+        <option id="3" value="8">Mortal Engines ($8)</option>
+        <option id="4" value="9">Top Gun Maverick ($9)</option>
       </select>
     </div>
 
@@ -31,8 +31,9 @@
     </ul>
 
     <div class="cinema">
-      <!-- <img class="cinema__screen" src="img/frozen2.png" alt="" srcset=""> -->
-      <div class="cinema__screen"></div>
+      <figure class="cinema__screen">
+        <img class="cinema__pic" src="img/frozen2.png" alt="" srcset="">
+      </figure>
 
       <div class="cinema__row">
         <button class="cinema__seat cinema__seat--occupied" aria-label="seat 1-1"></button>
