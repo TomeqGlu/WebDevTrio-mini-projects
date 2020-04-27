@@ -4,3 +4,81 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Questrial', sans-serif;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  max-height: 100vh;
+  margin: 0;
+
+  background-color: #666666;
+}
+
+.header-1 {
+  color: #ffffff;
+}
+
+.screen {
+  width: 60%;
+
+  cursor: pointer;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #000000 !important;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60%;
+  padding: 10px;
+
+  color: #ffffff;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: #333333;
+}
+
+.controls .btn {
+  cursor: pointer;
+
+  border: 0;
+  background: transparent;
+}
+
+.controls .fa-play {
+  color: #28a745;
+}
+
+.controls .fa-stop {
+  color: #dc3545;
+}
+
+.controls .fa-pause {
+  color: #ffffff;
+}
+
+.controls .timestamp {
+  font-weight: bold;
+
+  margin-left: 10px;
+
+  color: #ffffff;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+@media (max-width: 800px) {
+  .screen, .controls {
+    width: 90%;
+  }
+}
